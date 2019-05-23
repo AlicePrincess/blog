@@ -19,4 +19,4 @@ after_script:
   - git config user.email "245869567@qq.com"
   - git add .
   - git commit -m "automated build"
-  - git push --quiet --force https://${REPO_TOKEN}@github.com/AliceBlog/blog.git master:gh-pages
+  - git push --quiet --force https://${REPO_TOKEN}@github.com/AlicePrincess/blog.git master:gh-pages
