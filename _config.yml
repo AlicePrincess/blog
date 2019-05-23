@@ -4,12 +4,12 @@
 
 # Site
 title: Alice Blog
-subtitle: Aliceの小窝
-description: Aliceの小窝
-keywords: Aliceの小窝
+subtitle:
+description:
+keywords:
 author: alice
-language: zh-CN
-timezone: GMT+8
+language:
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -43,7 +43,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -52,7 +52,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
