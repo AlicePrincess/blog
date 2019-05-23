@@ -13,10 +13,9 @@ background:
 social:
   Dribbble: https://dribbble.com/clovertuan
   Behance: https://www.behance.net/clovertuan
-  Zcool: https://elsietuan.zcool.com.cn/
   Lofter: http://clovertuan.lofter.com/
   Instagram: https://www.instagram.com/clovertuan/
-  # GitHub: https://github.com/cloverTuan
+  GitHub: https://github.com/cloverTuan
 
 # Custom footer
 mail: d.guangying@foxmail.com
@@ -26,18 +25,21 @@ copyright: All rights reserved @Clover Tuan
 # Two kinds of card style: 'project-card', 'article-card',
 # Never mind the name.
 menu:
-  # Project: /
-  Blog: /
-  #Archive: /categories
-  Portfolio: /resume
+  # Project:
+  #   path: /categories/Projects
+  #   card: project-card
+  # Stuffs:
+  #   path: /tags/Stuffs
+  #   card: article-card
+  Home: /
+  Archive: /archives
   About: /about
 
 # Specific default categories or tags of home page.
 # Post which belongs to `category` or `tag` and don't belongs to `except_category` or `except_tag` will be filtered.
 home:
   # set card style of home page
-  tag: Blog
-  # category: Project
+  # category: Projects
   # tag: 算法
   # except_category: 树
   # except_tag:
@@ -47,7 +49,7 @@ home:
 card_style:
   home: project-card
   archive: article-card
-  tag: project-card
+  tag: article-card
   category: article-card
 
 # category page
