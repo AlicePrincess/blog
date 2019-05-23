@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
+title: Alice Blog
+subtitle: Aliceの小窝
+description: Aliceの小窝
+keywords: Aliceの小窝
 author: alice
-language:
-timezone:
+language: zh-CN
+timezone: GMT+8
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
