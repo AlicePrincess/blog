@@ -5,6 +5,13 @@
   "hexo": {
     "version": ""
   },
+  "scripts": {
+    "build": "hexo clean && hexo generate",
+    "dev": "hexo generate && http-server",
+    "pull": "git pull && hexo g",
+    "test": "http-server --port=PORT",
+    "start": "hexo clean && hexo generate && hexo server"
+  },
   "dependencies": {
     "hexo": "^3.8.0",
     "hexo-generator-archive": "^0.1.5",
