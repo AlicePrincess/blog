@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Angular6容器滚动条监听 | Alice Blog
+  </title>
+  <meta name="description" content>
+  
+  <meta name="keywords" content="
+  技术 AngularX
+  ">
+  
+  <meta name="author" content="alice">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://alice.witdor.com/assets/img/alicesmall.jpg"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 6 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Alice Blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    alice
+
+    <span class="post-date float-right" title="{{moment(1533513600000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1533513600000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Angular6容器滚动条监听</h1>
+    <h2 id="ngx-scroll-event"><a href="#ngx-scroll-event" class="headerlink" title="ngx-scroll-event"></a>ngx-scroll-event</h2><p>用于Angular2+监听滚动条的指令和事件</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><ul>
+<li>npm</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install ngx-scroll-event --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>yarn</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add ngx-scroll-event</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.module.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; ScrollEventModule &#125; <span class="keyword">from</span> <span class="string">'ngx-scroll-event'</span>;</span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line">  imports: [</span><br><span class="line">    ...,</span><br><span class="line">    ScrollEventModule,</span><br><span class="line">    ...,</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.awesome.component.ts</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; ScrollEvent &#125; <span class="keyword">from</span> <span class="string">'ngx-scroll-event'</span>;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">   ...</span><br><span class="line">   template: <span class="string">`...</span></span><br><span class="line"><span class="string">        &lt;div detect-scroll (onScroll)="handleScroll($event)" [bottomOffset]="200" [topOffset]="200" &gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;Bla bla bla&lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">   ...`</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AwesomeComponent</span> </span>&#123;</span><br><span class="line">  public handleScroll(event: ScrollEvent) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'scroll occurred'</span>, event.originalEvent);</span><br><span class="line">    <span class="keyword">if</span> (event.isReachingBottom) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`the user is reaching the bottom`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (event.isReachingTop) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`the user is reaching the top`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (event.isWindowEvent) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`This event is fired on Window not on an element.`</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://aliceprincess.info" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 alice</li>
+      <li><a href="https://aliceprincess.info">Home</a></li>
+      
+      <li><a href="//github.com/AlicePrincess">Github</a></li>
+      
+      <li><a href="//weibo.com/u/2749673491/home?wvr=5&amp;lf=reg">Weibo</a></li>
+      
+      <li><a href="//www.linkedin.com/in/%E6%A2%A6%E7%AB%B9-%E5%90%B4-b9a72b118/">Linkedin</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
